@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { nf } from "@/utils/currency";
 import taxData from "@/utils/taxBreakdown.json";
 import styles from "./TaxBreakdown.module.css";
@@ -418,7 +419,12 @@ export default function TaxBreakdown({
               "--target-top": '50vh',
             } as React.CSSProperties}
           >
-            <img src={taxData.taxBreakdown[currentImageIndex].image} alt={taxData.taxBreakdown[currentImageIndex].name} />
+            <Image 
+              src={taxData.taxBreakdown[currentImageIndex].image} 
+              alt={taxData.taxBreakdown[currentImageIndex].name}
+              width={200}
+              height={200}
+            />
           </div>
         );
       })()}
@@ -429,7 +435,7 @@ export default function TaxBreakdown({
       
       {showSummary && (
         <div className={styles.summaryContainer}>
-          <h2 className={styles.summaryTitle}>"Annyit érsz amennyid van"</h2>
+          <h2 className={styles.summaryTitle}>&quot;Annyit érsz amennyid van&quot;</h2>
           <div className={styles.pieChartContainer}>
             <div 
               className={styles.pieChart}
