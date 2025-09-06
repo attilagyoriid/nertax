@@ -1,0 +1,64 @@
+{
+  "taxBreakdown": [
+    {
+      "id": 1,
+      "name": "Munkaerőpiaci járulék",
+      "rate": 0.015,
+      "description": "Álláskeresési támogatás, munkaügyi központ",
+      "category": "socialInsurance",
+      "emotion": "😀",
+      "image": "/imgs/1_munkanelkulisegely.jpg"
+    },
+
+    {
+      "id": 2,
+      "name": "Pénzbeli egészségbiztosítási járulék",
+      "rate": 0.03,
+      "description": "Táppénz, gyed finanszírozása",
+      "category": "socialInsurance",
+      "emotion": "😐",
+      "image": "/imgs/2_korhaziko.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Egészségbiztosítási járulék",
+      "rate": 0.04,
+      "description": "Orvosi ellátás finanszírozása",
+      "category": "socialInsurance",
+      "emotion": "🙂",
+      "image": "/imgs/3_rendelovaro.png"
+    },
+    {
+      "id": 4,
+      "name": "Nyugdíjjárulék",
+      "rate": 0.1,
+      "description": "Állami nyugdíjkassza",
+      "category": "socialInsurance",
+      "emotion": "😕",
+      "image": "/imgs/4_csirkefaros.png"
+    },
+    {
+      "id": 5,
+      "name": "Személyi jövedelemadó (SZJA)",
+      "rate": 0.15,
+      "description": "Állam általános bevétele",
+      "category": "incomeTax",
+      "emotion": "😠",
+      "image": "/imgs/5_hatvanpuszi.png"
+    },
+    {
+      "id": 6,
+      "name": "Általános forgalmi adó (ÁFA)",
+      "rate": 0.27,
+      "description": "Fogyasztási típusú adó, minden termék és szolgáltatás árában",
+      "category": "consumptionTax",
+      "emotion": "🤬",
+      "image": "/imgs/6_orbanjacht.png"
+    }
+  ],
+  "totals": {
+    "socialInsurance": 0.185,
+    "incomeTax": 0.15,
+    "total": 0.335
+  }
+}

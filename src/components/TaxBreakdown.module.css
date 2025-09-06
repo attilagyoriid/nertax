@@ -1,0 +1,689 @@
+.container {
+  padding: 20px 28px 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 100px;
+  transition: all 0.3s ease;
+  overflow: visible;
+  margin: 0 auto;
+  max-width: 450px;
+  position: relative;
+}
+
+.taxItem {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  animation: slideInFromLeft 0.8s ease forwards;
+  opacity: 0;
+  transform: translateX(-100px);
+  position: relative;
+  overflow: visible;
+  text-align: center;
+}
+
+.placeholder {
+  position: relative;
+  min-height: 100px;
+}
+
+.remainingCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 8px 0 16px 0;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0);
+  z-index: 9999;
+  position: relative;
+}
+
+.remainingCard.animate {
+  animation: breakoutZoom 3s ease forwards;
+}
+
+.remainingHeader {
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.remainingAmount {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.taxItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.taxItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.taxItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.taxItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.taxItem:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.taxItem:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.taxName {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.taxRate {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.taxAmount {
+  font-weight: 800;
+  color: white;
+  font-size: 16px;
+}
+
+.taxDescription {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@keyframes slideInFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes percentBounce {
+  0% {
+    transform: scale(1);
+    z-index: 1;
+  }
+  25% {
+    transform: scale(6);
+    z-index: 9999;
+  }
+  50% {
+    transform: scale(8);
+    z-index: 9999;
+  }
+  75% {
+    transform: scale(6);
+    z-index: 9999;
+  }
+  100% {
+    transform: scale(1);
+    z-index: 1;
+  }
+}
+
+.percentBounce {
+  animation: percentBounce 2.5s ease-in-out;
+  display: inline-block;
+  position: relative;
+  z-index: 9999;
+}
+
+.emoji {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  animation: emojiSlideIn 1s ease-out;
+  z-index: 10;
+}
+
+@keyframes emojiSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes breakoutZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    position: relative;
+  }
+  5% {
+    opacity: 0;
+    transform: scale(var(--max-zoom, 15));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform-origin: center;
+    margin-left: -100px;
+    margin-top: -40px;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(var(--max-zoom, 15));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform-origin: center;
+    margin-left: -100px;
+    margin-top: -40px;
+  }
+  60% {
+    transform: scale(var(--mid-zoom, 12));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -100px;
+    margin-top: -40px;
+  }
+  85% {
+    transform: scale(0.7);
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 18px 24px 26px;
+  }
+
+  .taxItem {
+    padding: 11px 13px;
+  }
+}
+
+@property --tax-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --remaining-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.summaryContainer {
+  margin-top: 24px;
+  padding: 20px 28px;
+  background: #ff6a00;
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  border-radius: 12px;
+  animation: grainFadeIn 2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.summaryTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.pieChartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pieChart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  background: transparent;
+}
+
+.pieOutline {
+  animation: outlineFadeIn 1s ease-out 0.5s both;
+}
+
+.pieSliceTax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #22c55e 0deg var(--tax-angle),
+    transparent var(--tax-angle) 360deg
+  );
+  --tax-angle: 0deg;
+  animation: taxSliceGrow 2s ease-out 1s forwards;
+}
+
+.pieSliceRemaining {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from calc(var(--tax-percentage, 33.5) * 3.6deg),
+    #e80205 0deg var(--remaining-angle),
+    transparent var(--remaining-angle) 360deg
+  );
+  --remaining-angle: 0deg;
+  animation: remainingSliceGrow 2s ease-out 3s forwards;
+}
+
+.pieLabels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.taxText {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 1;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  z-index: 20;
+}
+
+.remainingText {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 1;
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  z-index: 20;
+}
+
+.remainingAmount,
+.taxAmount {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remainingPercent,
+.taxPercent {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@keyframes outlineFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes taxSliceGrow {
+  0% {
+    --tax-angle: 0deg;
+  }
+  100% {
+    --tax-angle: calc(var(--tax-percentage) * 3.6deg);
+  }
+}
+
+@keyframes remainingSliceGrow {
+  0% {
+    --remaining-angle: 0deg;
+  }
+  100% {
+    --remaining-angle: calc(var(--remaining-percentage) * 3.6deg);
+  }
+}
+
+.taxImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.taxImage.animate {
+  animation: imageBreakoutZoom 3s ease forwards;
+}
+
+.taxImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+@keyframes imageBreakoutZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    z-index: 1;
+  }
+  5% {
+    opacity: 0;
+    transform: scale(var(--max-zoom, 4));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -100px;
+    margin-top: -40px;
+    z-index: 9999;
+  }
+  15% {
+    opacity: 1;
+    transform: scale(var(--max-zoom, 4));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -100px;
+    margin-top: -40px;
+    z-index: 9999;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(var(--max-zoom, 4));
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -100px;
+    margin-top: -40px;
+    z-index: 9999;
+  }
+  85% {
+    transform: scale(var(--mid-zoom, 3.2));
+    position: fixed;
+    left: var(--target-left, 50vw);
+    top: var(--target-top, 50vh);
+    margin-left: -100px;
+    margin-top: -50px;
+    z-index: 9999;
+  }
+  95% {
+    transform: scale(0.7);
+    position: fixed;
+    left: var(--target-left, 50vw);
+    top: var(--target-top, 50vh);
+    margin-left: -100px;
+    margin-top: -50px;
+    z-index: 9999;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    position: fixed;
+    z-index: 1;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.orangeCircle {
+  background: #ff6a00;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  animation: circleGrow 0.5s ease-out forwards;
+  transform: scale(0);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes circleGrow {
+  0% {
+    transform: scale(0);
+    background: transparent;
+  }
+  100% {
+    transform: scale(1);
+    background: #ff6a00;
+  }
+}
+
+@keyframes grainFadeIn {
+  0% {
+    opacity: 0;
+    filter: contrast(2) brightness(0.5);
+    background-size: 50px 50px;
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(255, 255, 255, 0.3) 2px,
+        transparent 2px
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 50% 10%,
+        rgba(255, 255, 255, 0.15) 1px,
+        transparent 1px
+      );
+  }
+  30% {
+    opacity: 0.3;
+    filter: contrast(1.8) brightness(0.6);
+    background-size: 30px 30px;
+  }
+  70% {
+    opacity: 0.7;
+    filter: contrast(1.3) brightness(0.8);
+    background-size: 15px 15px;
+  }
+  100% {
+    opacity: 1;
+    filter: contrast(1) brightness(1);
+    background-size: 0px 0px;
+    background-image: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 20px 24px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .taxItem {
+    padding: 10px 12px;
+  }
+
+  .taxName {
+    font-size: 13px;
+  }
+
+  .taxAmount {
+    font-size: 15px;
+  }
+
+  .summaryContainer {
+    padding: 16px 20px;
+  }
+
+  .summaryTitle {
+    font-size: 18px;
+  }
+
+  @keyframes breakoutZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+      position: relative;
+    }
+    5% {
+      opacity: 0;
+      transform: scale(var(--max-zoom, 15));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      transform-origin: center;
+      margin-left: -80px;
+      margin-top: -30px;
+    }
+    30% {
+      opacity: 1;
+      transform: scale(var(--max-zoom, 15));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      transform-origin: center;
+      margin-left: -80px;
+      margin-top: -30px;
+    }
+    60% {
+      transform: scale(var(--mid-zoom, 12));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      margin-left: -80px;
+      margin-top: -30px;
+    }
+    85% {
+      transform: scale(0.7);
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-left: -20px;
+      margin-top: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      position: relative;
+    }
+  }
+
+  .taxImage.animate {
+    animation: imageBreakoutZoomMobile 3s ease forwards;
+  }
+
+  @keyframes imageBreakoutZoomMobile {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+      position: absolute;
+      z-index: 1;
+    }
+    5% {
+      opacity: 0;
+      transform: scale(var(--max-zoom, 4));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      margin-left: -100px;
+      margin-top: -30px;
+      z-index: 9999;
+    }
+    15% {
+      opacity: 1;
+      transform: scale(var(--max-zoom, 4));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      margin-left: -100px;
+      margin-top: -30px;
+      z-index: 9999;
+    }
+    70% {
+      opacity: 1;
+      transform: scale(var(--max-zoom, 4));
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      margin-left: -100px;
+      margin-top: -30px;
+      z-index: 9999;
+    }
+    85% {
+      transform: scale(var(--mid-zoom, 3.2));
+      position: fixed;
+      left: var(--target-left, 50vw);
+      top: var(--target-top, 50vh);
+      margin-left: -100px;
+      margin-top: -50px;
+      z-index: 9999;
+    }
+    95% {
+      transform: scale(0.7);
+      position: fixed;
+      left: var(--target-left, 50vw);
+      top: var(--target-top, 50vh);
+      margin-left: -100px;
+      margin-top: -50px;
+      z-index: 9999;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+      position: fixed;
+      z-index: 1;
+    }
+  }
+}
