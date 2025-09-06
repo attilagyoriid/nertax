@@ -324,7 +324,7 @@ export default function TaxBreakdown({
               >
                 {tax.name}
               </span>
-              <div className={`${styles.taxRate} ${completedImages.includes(index) ? styles.orangeCircle : ''}`}>
+              <div className={`${styles.taxRate} ${completedImages.includes(index) ? (index >= 4 ? styles.orangeCircleOutline : styles.orangeCircle) : ''}`}>
                 <span
                   className={
                     animatingPercent.includes(index) ? styles.percentBounce : ""
@@ -424,6 +424,9 @@ export default function TaxBreakdown({
               alt={taxData.taxBreakdown[currentImageIndex].name}
               width={200}
               height={200}
+              sizes="(max-width: 480px) 150px, (max-width: 768px) 180px, 200px"
+              quality={75}
+              priority={false}
             />
           </div>
         );

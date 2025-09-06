@@ -16,7 +16,7 @@
       "rate": 0.03,
       "description": "Táppénz, gyed finanszírozása",
       "category": "socialInsurance",
-      "emotion": "😐",
+      "emotion": "🙂",
       "image": "/imgs/2_korhaziko.jpg"
     },
     {
@@ -25,7 +25,7 @@
       "rate": 0.04,
       "description": "Orvosi ellátás finanszírozása",
       "category": "socialInsurance",
-      "emotion": "🙂",
+      "emotion": "😐",
       "image": "/imgs/3_rendelovaro.png"
     },
     {
