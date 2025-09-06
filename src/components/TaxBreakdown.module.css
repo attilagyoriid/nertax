@@ -26,6 +26,7 @@
   position: relative;
   overflow: visible;
   text-align: center;
+  min-height: 120px;
 }
 
 .placeholder {
@@ -118,16 +119,8 @@
     transform: scale(1);
     z-index: 1;
   }
-  25% {
-    transform: scale(6);
-    z-index: 9999;
-  }
   50% {
     transform: scale(8);
-    z-index: 9999;
-  }
-  75% {
-    transform: scale(6);
     z-index: 9999;
   }
   100% {
@@ -137,7 +130,7 @@
 }
 
 .percentBounce {
-  animation: percentBounce 2.5s ease-in-out;
+  animation: percentBounce 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: inline-block;
   position: relative;
   z-index: 9999;

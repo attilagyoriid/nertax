@@ -1,6 +1,8 @@
 'use client';
 
 import { FormEvent, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import taxData from '@/utils/taxBreakdown.json';
 import styles from './TaxForm.module.css';
 
 interface TaxFormProps {
@@ -24,6 +26,14 @@ export default function TaxForm({
 
   useEffect(() => {
     inputRef.current?.focus();
+    
+    // Eager prefetch images in background
+    setTimeout(() => {
+      taxData.taxBreakdown.forEach((tax) => {
+        const img = new Image();
+        img.src = tax.image;
+      });
+    }, 100);
   }, []);
 
   const handleSubmit = (e: FormEvent) => {

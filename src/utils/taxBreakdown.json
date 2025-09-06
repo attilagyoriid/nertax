@@ -7,7 +7,7 @@
       "description": "Álláskeresési támogatás, munkaügyi központ",
       "category": "socialInsurance",
       "emotion": "😀",
-      "image": "/imgs/1_munkanelkulisegely.jpg"
+      "image": "/imgs/1_munkanelkulisegely_sm.jpg"
     },
 
     {
@@ -17,7 +17,7 @@
       "description": "Táppénz, gyed finanszírozása",
       "category": "socialInsurance",
       "emotion": "🙂",
-      "image": "/imgs/2_korhaziko.jpg"
+      "image": "/imgs/2_korhaziko_sm.jpg"
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
       "description": "Orvosi ellátás finanszírozása",
       "category": "socialInsurance",
       "emotion": "😐",
-      "image": "/imgs/3_rendelovaro.png"
+      "image": "/imgs/3_rendelovaro_sm.png"
     },
     {
       "id": 4,
@@ -35,7 +35,7 @@
       "description": "Állami nyugdíjkassza",
       "category": "socialInsurance",
       "emotion": "😕",
-      "image": "/imgs/4_csirkefaros.png"
+      "image": "/imgs/4_csirkefaros_sm.png"
     },
     {
       "id": 5,
@@ -44,7 +44,7 @@
       "description": "Állam általános bevétele",
       "category": "incomeTax",
       "emotion": "😠",
-      "image": "/imgs/5_hatvanpuszi.png"
+      "image": "/imgs/5_hatvanpuszi_sm.png"
     },
     {
       "id": 6,
@@ -53,7 +53,7 @@
       "description": "Fogyasztási típusú adó, minden termék és szolgáltatás árában",
       "category": "consumptionTax",
       "emotion": "🤬",
-      "image": "/imgs/6_orbanjacht.png"
+      "image": "/imgs/6_orbanjacht_sm.png"
     }
   ],
   "totals": {
